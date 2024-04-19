@@ -1,4 +1,6 @@
 import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+dotenv.config();
 
 export const sendEmail = () => {
   const transporter = nodemailer.createTransport({
@@ -7,8 +9,8 @@ export const sendEmail = () => {
     logger: true,
     debug: true,
     auth: {
-      user: "anhnbk113@gmail.com",
-      pass: "ktvz euex cgsy mcyo",
+      user: process.env.EMAIL,
+      pass: process.env.PASSWORD_EMAIL,
     },
   });
   const mailOptions = {
